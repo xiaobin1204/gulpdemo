@@ -3,11 +3,13 @@ var sass = require('gulp-sass');  // 引入gulp-sass插件
 var less = require('gulp-less');  // 引入gulp-less插件
 var connect = require('gulp-connect');  // 引入gulp-connect插件
 var concat = require('gulp-concat');  // 引入gulp-concat插件
+var uglify = require('gulp-uglify');  // 引入gulp-uglify插件
 
 // 合并文件
 gulp.task('scripts', function () {
   return gulp.src(['javascript/jquery.js', 'javascript/modernizr.js'])
          .pipe(concat('vendor.js')) // 合并后文件的名字
+         .pipe(uglify()) // 压缩合并后的js
          .pipe(gulp.dest('dist/js'));
 });
 

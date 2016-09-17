@@ -1,3 +1,1 @@
-var a = 'jquery';
-
-var b = 'modernizr';
+var a="jquery",b="modernizr";
