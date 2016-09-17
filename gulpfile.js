@@ -1,7 +1,7 @@
 var gulp = require('gulp');  // 引入gulp
 var sass = require('gulp-sass');  // 引入gulp-sass插件
 var less = require('gulp-less');  // 引入gulp-less插件
-
+var connect = require('gulp-connect');  // 引入gulp-connect插件
 
 // 复制文件
 gulp.task('copy-index', function () {
@@ -43,4 +43,10 @@ gulp.task('less', function () {
   return gulp.src('stylesheets/**/*.less')
          .pipe(less())
          .pipe(gulp.dest('dist/css2'));
+});
+
+gulp.task('server', function () {
+  connect.server({
+    root: 'dist'
+  });
 });
