@@ -3,10 +3,20 @@ var sass = require('gulp-sass');  // 引入gulp-sass插件
 var less = require('gulp-less');  // 引入gulp-less插件
 var connect = require('gulp-connect');  // 引入gulp-connect插件
 
+
+gulp.task('server', function () {
+  connect.server({
+    root: 'dist',
+    livereload: true //开启实时刷新
+  });
+});
+
 // 复制文件
 gulp.task('copy-index', function () {
   // src是源 pipe相当于一个管道 这里是把找到的index.html源放到管道里去处理 dest是目的地
-  return gulp.src('index.html').pipe(gulp.dest('dist'));
+  return gulp.src('index.html')
+  .pipe(gulp.dest('dist'))
+  .pipe(connect.reload()); // 刷新一下浏览器
 });
 
 // 复制图片
@@ -45,8 +55,4 @@ gulp.task('less', function () {
          .pipe(gulp.dest('dist/css2'));
 });
 
-gulp.task('server', function () {
-  connect.server({
-    root: 'dist'
-  });
-});
+gulp.task('default', ['server', 'watch']);
