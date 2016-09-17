@@ -9,5 +9,5 @@ gulp.task('copy-index', function () {
 
 // 复制图片
 gulp.task('images', function () {
-  return gulp.src('images/*.{png,jpg}').pipe(gulp.dest('dist/images'));
+  return gulp.src('images/*').pipe(gulp.dest('dist/images'));
 });
