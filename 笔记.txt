@@ -15,3 +15,5 @@ npm install gulp-concat --save-dev
 npm install gulp-uglify --save-dev
 
 npm install gulp-rename --save-dev
+
+npm install gulp-minify-css --save-dev

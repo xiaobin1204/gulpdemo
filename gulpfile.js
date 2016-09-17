@@ -5,6 +5,7 @@ var connect = require('gulp-connect');  // 引入gulp-connect插件
 var concat = require('gulp-concat');  // 引入gulp-concat插件
 var uglify = require('gulp-uglify');  // 引入gulp-uglify插件
 var rename = require('gulp-rename');  // 引入gulp-rename插件
+var minifyCSS = require('gulp-minify-css');  // 引入gulp-minify-css插件
 
 // 合并文件
 gulp.task('scripts', function () {
@@ -66,6 +67,7 @@ gulp.task('sass', function () {
 gulp.task('less', function () {
   return gulp.src('stylesheets/**/*.less')
          .pipe(less())
+         .pipe(minifyCSS())
          .pipe(gulp.dest('dist/css2'));
 });
 
