@@ -9,3 +9,5 @@ npm install gulp-sass --save-dev
 npm install gulp-less --save-dev
 
 npm install gulp-connect --save-dev
+
+npm install gulp-concat --save-dev
