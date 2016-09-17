@@ -18,3 +18,8 @@ gulp.task('data', function () {
   return gulp.src(['xml/*.xml', 'json/*.json', '!json/secret-*.json'])
          .pipe(gulp.dest('dist/data'));
 });
+
+// 主任务
+gulp.task('build', ['copy-index', 'images', 'data'], function () {
+  console.log('编译完成');
+});
