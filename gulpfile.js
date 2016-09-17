@@ -6,6 +6,7 @@ var concat = require('gulp-concat');  // 引入gulp-concat插件
 var uglify = require('gulp-uglify');  // 引入gulp-uglify插件
 var rename = require('gulp-rename');  // 引入gulp-rename插件
 var minifyCSS = require('gulp-minify-css');  // 引入gulp-minify-css插件
+var imagemin = require('gulp-imagemin');  // 引入gulp-imagemin插件
 
 // 合并文件
 gulp.task('scripts', function () {
@@ -37,7 +38,9 @@ gulp.task('copy-index', function () {
 // 复制图片
 gulp.task('images', function () {
   // 多级目录
-  return gulp.src('images/**/*').pipe(gulp.dest('dist/images'));
+  return gulp.src('images/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'));
 });
 
 // 多个globs 排除的文件

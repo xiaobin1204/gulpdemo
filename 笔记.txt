@@ -17,3 +17,5 @@ npm install gulp-uglify --save-dev
 npm install gulp-rename --save-dev
 
 npm install gulp-minify-css --save-dev
+
+npm install gulp-imagemin --save-dev
