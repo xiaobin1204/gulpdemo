@@ -1,12 +1,13 @@
 var gulp = require('gulp');  // 引入gulp
 
-// 创建一个任务 两个参数 任务名 任务方法
-gulp.task(
-  'hello',
-  function () {
-    console.log('你好!');
-  }
-);
 
-// 默认任务 后面的参数是个任务列表
-gulp.task('default', ['hello']);
+// 复制文件
+gulp.task('copy-index', function () {
+  // src是源 pipe相当于一个管道 这里是把找到的index.html源放到管道里去处理 dest是目的地
+  return gulp.src('index.html').pipe(gulp.dest('dist'));
+});
+
+// 复制图片
+gulp.task('images', function () {
+  return gulp.src('images/*.{png,jpg}').pipe(gulp.dest('dist/images'));
+});
