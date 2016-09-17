@@ -4,6 +4,9 @@ var gulp = require('gulp');  // 引入gulp
 gulp.task(
   'hello',
   function () {
-    console.log('你好！')；
+    console.log('你好!');
   }
 );
+
+// 默认任务 后面的参数是个任务列表
+gulp.task('default', ['hello']);
