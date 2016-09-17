@@ -23,3 +23,10 @@ gulp.task('data', function () {
 gulp.task('build', ['copy-index', 'images', 'data'], function () {
   console.log('编译完成');
 });
+
+// 文件变化执行任务
+gulp.task('watch', function () {
+  gulp.watch('index.html', ['copy-index']);
+  gulp.watch('images/**/*.{jpg,png}', ['images']);
+  gulp.watch(['xml/*.xml', 'json/*.json', '!json/secret-*.json'], ['data']);
+});
