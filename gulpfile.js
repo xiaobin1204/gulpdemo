@@ -12,3 +12,8 @@ gulp.task('images', function () {
   // 多级目录
   return gulp.src('images/**/*').pipe(gulp.dest('dist/images'));
 });
+
+// 多个globs
+gulp.task('data', function () {
+  return gulp.src(['xml/*.xml', 'json/*.json']).pipe(gulp.dest('dist/data'));
+});
