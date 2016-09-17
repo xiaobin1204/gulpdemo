@@ -13,7 +13,8 @@ gulp.task('images', function () {
   return gulp.src('images/**/*').pipe(gulp.dest('dist/images'));
 });
 
-// 多个globs
+// 多个globs 排除的文件
 gulp.task('data', function () {
-  return gulp.src(['xml/*.xml', 'json/*.json']).pipe(gulp.dest('dist/data'));
+  return gulp.src(['xml/*.xml', 'json/*.json', '!json/secret-*.json'])
+         .pipe(gulp.dest('dist/data'));
 });
