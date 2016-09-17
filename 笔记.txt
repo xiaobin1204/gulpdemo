@@ -13,3 +13,5 @@ npm install gulp-connect --save-dev
 npm install gulp-concat --save-dev
 
 npm install gulp-uglify --save-dev
+
+npm install gulp-rename --save-dev

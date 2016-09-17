@@ -4,12 +4,15 @@ var less = require('gulp-less');  // 引入gulp-less插件
 var connect = require('gulp-connect');  // 引入gulp-connect插件
 var concat = require('gulp-concat');  // 引入gulp-concat插件
 var uglify = require('gulp-uglify');  // 引入gulp-uglify插件
+var rename = require('gulp-rename');  // 引入gulp-rename插件
 
 // 合并文件
 gulp.task('scripts', function () {
   return gulp.src(['javascript/jquery.js', 'javascript/modernizr.js'])
          .pipe(concat('vendor.js')) // 合并后文件的名字
+         .pipe(gulp.dest('dist/js')) // 保存文件
          .pipe(uglify()) // 压缩合并后的js
+         .pipe(rename('vendor.min.js')) //重命名文件
          .pipe(gulp.dest('dist/js'));
 });
 
