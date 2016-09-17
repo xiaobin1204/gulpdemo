@@ -1,4 +1,5 @@
 var gulp = require('gulp');  // 引入gulp
+var sass = require('gulp-sass');  // 引入gulp-sass插件
 
 
 // 复制文件
@@ -29,4 +30,10 @@ gulp.task('watch', function () {
   gulp.watch('index.html', ['copy-index']);
   gulp.watch('images/**/*.{jpg,png}', ['images']);
   gulp.watch(['xml/*.xml', 'json/*.json', '!json/secret-*.json'], ['data']);
+});
+
+gulp.task('sass', function () {
+  return gulp.src('stylesheets/**/*.scss')
+         .pipe(sass())
+         .pipe(gulp.dest('dist/css'));
 });
